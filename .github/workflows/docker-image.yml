@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -19,17 +20,7 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
-      # Step 1: Checkout
-      - name: Deploy to Docker swarm
-        uses: wshihadeh/docker-deployment-action@v1
-        with:
-          remote_docker_host: user@myswarm.com
-          ssh_private_key: ${{ secrets.SERVER_KEY }}
-          ssh_public_key: ssh-keyscan -H 34.122.149.100
-          password: ${{ secrets.SERVER_PASSPHRASE }}
-          deployment_mode: docker-compose
-          copy_stack_file: true
-          deploy_path: /my-deployment
-          stack_file_name: docker-compose.yaml
-          keep_files: 5
-          args: my_applicaion
+          script: |
+            sudo cd /my-deployment
+            sudo mkdir works
+            
