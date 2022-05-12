@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - run: git clone
+          
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
