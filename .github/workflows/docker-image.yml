@@ -21,7 +21,5 @@ jobs:
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
           script: |
-            sudo cd /
-            sudo cd /my-deployment
-            sudo mkdir works
+           ls /
             
