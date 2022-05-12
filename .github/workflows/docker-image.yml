@@ -22,5 +22,6 @@ jobs:
           port: 22
           script: |
            cd /
+           cd my-deployment
            ls
             
