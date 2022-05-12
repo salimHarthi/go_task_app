@@ -23,6 +23,7 @@ jobs:
       - name: Deploy to Docker docker-compose
         uses: wshihadeh/docker-deployment-action@v1
         with:
+          remote_docker_host: salimdesk@34.122.149.100
           deployment_mode: docker-compose
           copy_stack_file: true
           deploy_path: /root/my-deployment
