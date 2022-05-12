@@ -10,10 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - run: git clone
-          
+    steps:          
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -25,5 +22,7 @@ jobs:
           script: |
            cd /
            cd my-deployment
-           git clone https://github.com/salimHarthi/go_task_app
+           cd go_task_app
+           git pull
+           docker-compose up -d
             
