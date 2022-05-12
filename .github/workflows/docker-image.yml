@@ -17,7 +17,7 @@ jobs:
           host: 34.122.149.100
           username: githubuser
           key: ${{ secrets.SERVER_KEY }}
-          passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+#           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
       # Step 1: Checkout
       - name: Deploy to Docker docker-compose
