@@ -20,13 +20,15 @@ jobs:
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
       # Step 1: Checkout
-      - name: Deploy to Docker docker-compose
+      - name: Deploy to Docker swarm
         uses: wshihadeh/docker-deployment-action@v1
         with:
-          remote_docker_host: salimdesk@34.122.149.100
+          remote_docker_host: user@myswarm.com
+          ssh_private_key: ${{ secrets.SERVER_KEY }}
+          ssh_public_key: ssh-keyscan -H 34.122.149.100
           deployment_mode: docker-compose
           copy_stack_file: true
-          deploy_path: /root/my-deployment
+          deploy_path: /my-deployment
           stack_file_name: docker-compose.yaml
           keep_files: 5
           args: my_applicaion
