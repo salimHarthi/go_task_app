@@ -21,5 +21,6 @@ jobs:
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
           script: |
-           ls /
+           cd /
+           ls
             
