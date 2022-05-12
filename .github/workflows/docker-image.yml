@@ -26,7 +26,7 @@ jobs:
           remote_docker_host: user@myswarm.com
           ssh_private_key: ${{ secrets.SERVER_KEY }}
           ssh_public_key: ssh-keyscan -H 34.122.149.100
-          passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+          password: ${{ secrets.SERVER_PASSPHRASE }}
           deployment_mode: docker-compose
           copy_stack_file: true
           deploy_path: /my-deployment
