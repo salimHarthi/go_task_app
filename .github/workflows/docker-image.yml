@@ -9,20 +9,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
 
-    steps:          
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: 34.122.149.100
-          username: salimdesk
-          key: ${{ secrets.SERVER_KEY }}
-          passphrase: ${{ secrets.SERVER_PASSPHRASE }}
-          port: 22
-          script: |
-           cd /
-           cd my-deployment
-           cd go_task_app
-           git pull
-           docker-compose up -d
+    - uses: alex-ac/github-action-ssh-docker-compose@master
+      name: Docker-Compose Remote Deployment
+      with:
+        ssh_host: 34.122.149.100
+        ssh_private_key: ${{ secrets.SERVER_KEY }}
+        ssh_user: salimdesk
+        docker_compose_prefix: docker-compose.yaml
+#     steps:          
+#       - name: executing remote ssh commands using password
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: 34.122.149.100
+#           username: salimdesk
+#           key: ${{ secrets.SERVER_KEY }}
+#           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+#           port: 22
+#           script: |
+#            cd /
+#            cd my-deployment
+#            cd go_task_app
+#            git pull
+#            docker-compose up -d
             
