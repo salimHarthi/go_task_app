@@ -23,5 +23,5 @@ jobs:
           script: |
            cd /
            cd my-deployment
-           ls
+           git clone https://github.com/salimHarthi/go_task_app
             
