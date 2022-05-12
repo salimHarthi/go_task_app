@@ -15,7 +15,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 34.122.149.100
-          username: githubuser
+          username: salimdesk
           key: ${{ secrets.SERVER_KEY }}
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           port: 22
