@@ -1,0 +1,31 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: 35.188.137.98
+          username: salimdesc
+          key: ${{ secrets.SERVER_KEY }}
+          passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+          port: 22
+      # Step 1: Checkout
+      - name: Deploy to Docker docker-compose
+        uses: wshihadeh/docker-deployment-action@v1
+        with:
+          deployment_mode: docker-compose
+          copy_stack_file: true
+          deploy_path: /root/my-deployment
+          stack_file_name: docker-compose.yaml
+          keep_files: 5
+          args: my_applicaion

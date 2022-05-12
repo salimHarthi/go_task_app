@@ -1,0 +1,28 @@
+auth api (firbase)
+login
+logout
+singup 
+delete account
+forget password
+reset password
+
+user
+get user info 
+update info 
+
+Task (one task kan have many users and user can have many tasks)
+creat Task
+update task 
+delete task
+get tasks pages
+get one task
+
+teams
+get all teams
+create team
+delete team
+join team
+invite to team
+
+docker-compose up -d
+docker-compose restart backend
