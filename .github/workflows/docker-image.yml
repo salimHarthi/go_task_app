@@ -21,7 +21,7 @@ jobs:
         ssh_public_key: ssh-keyscan -H 34.122.149.100
         deployment_mode: docker-compose
         copy_stack_file: true
-        deploy_path: /tmp/aa
+        deploy_path: /tmp
         stack_file_name: docker-compose.yaml
         keep_files: 5
         args: docker-compose up -d
