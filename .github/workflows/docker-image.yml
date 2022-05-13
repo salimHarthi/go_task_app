@@ -13,28 +13,28 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-#     - name: Deploy to Docker compose
-#       uses: wshihadeh/docker-deployment-action@v1
-#       with:
-#         remote_docker_host: salimdesk@34.72.147.145
-#         ssh_private_key: ${{ secrets.SERVER_KEY }}
-#         ssh_public_key:  ssh-keyscan -H 34.72.147.145
-#         deployment_mode: docker-compose
-#         copy_stack_file: true
-#         deploy_path: /tmp
-#         stack_file_name: docker-compose.yaml
-#         keep_files: 5
-#         args: up -d
-#         docker_prune: 'true'
-#         pull_images_first: 'true'
-
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
+    - name: Deploy to Docker compose
+      uses: wshihadeh/docker-deployment-action@v1
       with:
-        ssh_host: 34.72.147.145
+        remote_docker_host: salimdesk@34.72.147.145
         ssh_private_key: ${{ secrets.SERVER_KEY }}
-        ssh_user: salimdesk
-        docker_compose_prefix: go
+        ssh_public_key:  ssh-keyscan -H 34.72.147.145
+        deployment_mode: docker-compose
+        copy_stack_file: true
+        deploy_path: /tmp
+        stack_file_name: docker-compose.yaml
+        keep_files: 5
+        args: up -d
+        docker_prune: 'true'
+        pull_images_first: 'true'
+
+#     - uses: alex-ac/github-action-ssh-docker-compose@master
+#       name: Docker-Compose Remote Deployment
+#       with:
+#         ssh_host: 34.72.147.145
+#         ssh_private_key: ${{ secrets.SERVER_KEY }}
+#         ssh_user: salimdesk
+#         docker_compose_prefix: go
 
 
        
