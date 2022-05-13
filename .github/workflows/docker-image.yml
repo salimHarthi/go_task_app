@@ -28,13 +28,14 @@ jobs:
 #         docker_prune: 'true'
 #         pull_images_first: 'true'
 
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
-      with:
-        ssh_host: 34.72.147.145
-        ssh_private_key: ${{ secrets.SERVER_KEY }}
-        ssh_user: salimdesk
-        docker_compose_prefix: go
+#  kinda works
+#     - uses: alex-ac/github-action-ssh-docker-compose@master
+#       name: Docker-Compose Remote Deployment
+#       with:
+#         ssh_host: 34.72.147.145
+#         ssh_private_key: ${{ secrets.SERVER_KEY }}
+#         ssh_user: salimdesk
+#         docker_compose_prefix: go
 
 
        
@@ -52,4 +53,19 @@ jobs:
 #            cd go_task_app
 #            git pull
 #            docker-compose up -d
-            
+
+    - name: Build image
+      run: docker-compose build
+    - name: ls
+      run: ls
+      
+#     - name: Deploy to Server
+#       uses: easingthemes/ssh-deploy@main
+#       env:
+#           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+#           ARGS: "-rltgoDzvO --delete"
+#           SOURCE: "/build"
+#           REMOTE_HOST: 34.122.149.100
+#           REMOTE_USER: salimdesk
+#           TARGET: /tmp/aa
+#           EXCLUDE: "/dist/, /node_modules/"
