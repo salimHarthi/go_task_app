@@ -24,7 +24,7 @@ jobs:
         deploy_path: /home
         stack_file_name: docker-compose.yaml
         keep_files: 5
-        args: docker-compose up -d
+#         args: docker-compose up -d
 
 #     - uses: alex-ac/github-action-ssh-docker-compose@master
 #       name: Docker-Compose Remote Deployment
