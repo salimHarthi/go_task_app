@@ -11,6 +11,9 @@ func Setup() *fiber.App {
 	// "OK" response. It should return status
 	// code 200
 	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("OK")
+	})
+	app.Get("/aa", func(c *fiber.Ctx) error {
 		return c.SendString("OK aaaa")
 	})
 	// Return the configured app
