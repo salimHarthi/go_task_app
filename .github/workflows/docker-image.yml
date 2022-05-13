@@ -16,9 +16,9 @@ jobs:
     - name: Deploy to Docker compose
       uses: wshihadeh/docker-deployment-action@v1
       with:
-        remote_docker_host: 34.72.147.145
+        remote_docker_host: salimdesk@34.72.147.145
         ssh_private_key: ${{ secrets.SERVER_KEY }}
-        ssh_public_key:  ${{secrets.PUB_KEY}}
+        ssh_public_key:  ssh-keyscan -H 34.72.147.145
         deployment_mode: docker-compose
         copy_stack_file: true
         deploy_path: /tmp
