@@ -42,7 +42,7 @@ jobs:
         host: 34.134.209.143
         username: salimdesk
         key: ${{ secrets.SERVER_KEY }}
-        passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+        passphrase: ""
         port: 22
 #           script: |
 #            cd /
