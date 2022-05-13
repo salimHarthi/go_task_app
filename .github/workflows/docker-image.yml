@@ -26,25 +26,24 @@ jobs:
 #         keep_files: 5
 #         args: my_applicaion
 
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
+#     - uses: alex-ac/github-action-ssh-docker-compose@master
+#       name: Docker-Compose Remote Deployment
+#       with:
+#         ssh_host: 34.134.209.143
+#         ssh_private_key: ${{ secrets.SERVER_KEY }}
+#         ssh_user: salimdesk
+#         docker_compose_prefix: go
+
+
+       
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
       with:
-        ssh_host: 34.134.209.143
-        ssh_private_key: ${{ secrets.SERVER_KEY }}
-        ssh_user: salimdesk
-        docker_compose_prefix: go
-
-
-
-#     steps:          
-#       - name: executing remote ssh commands using password
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: 34.122.149.100
-#           username: salimdesk
-#           key: ${{ secrets.SERVER_KEY }}
-#           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
-#           port: 22
+        host: 34.134.209.143
+        username: salimdesk
+        key: ${{ secrets.SERVER_KEY }}
+        passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+        port: 22
 #           script: |
 #            cd /
 #            cd my-deployment
