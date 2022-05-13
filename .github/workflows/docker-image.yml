@@ -16,9 +16,9 @@ jobs:
     - name: Deploy to Docker swarm
       uses: wshihadeh/docker-deployment-action@v1
       with:
-        remote_docker_host: 34.133.134.26
+        remote_docker_host: 34.72.147.145
         ssh_private_key: ${{ secrets.SERVER_KEY }}
-        ssh_public_key: ssh-keyscan -H 34.122.149.100
+        ssh_public_key: ssh-keyscan -H 34.72.147.145
         deployment_mode: docker-compose
         copy_stack_file: true
         deploy_path: /tmp
@@ -31,7 +31,7 @@ jobs:
 #     - uses: alex-ac/github-action-ssh-docker-compose@master
 #       name: Docker-Compose Remote Deployment
 #       with:
-#         ssh_host: 34.133.134.26
+#         ssh_host: 34.72.147.145
 #         ssh_private_key: ${{ secrets.SERVER_KEY }}
 #         ssh_user: salimdesk
 #         docker_compose_prefix: go
@@ -41,7 +41,7 @@ jobs:
 #     - name: executing remote ssh commands using password
 #       uses: appleboy/ssh-action@master
 #       with:
-#         host: 34.133.134.26
+#         host: 34.72.147.145
 #         username: salimdesk
 #         key: ${{ secrets.SERVER_KEY }}
 #         passphrase: ""
