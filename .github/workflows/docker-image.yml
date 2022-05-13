@@ -21,10 +21,12 @@ jobs:
         ssh_public_key: ssh-keyscan -H 34.122.149.100
         deployment_mode: docker-compose
         copy_stack_file: true
-        deploy_path: /home
+        deploy_path: /tmp
         stack_file_name: docker-compose.yaml
         keep_files: 5
-#         args: docker-compose up -d
+        args: up -d
+        docker_prune: 'true'
+        pull_images_first: 'true'
 
 #     - uses: alex-ac/github-action-ssh-docker-compose@master
 #       name: Docker-Compose Remote Deployment
